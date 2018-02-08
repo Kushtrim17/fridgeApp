@@ -2,6 +2,7 @@ import React from 'react';
 import { Switch, Route } from 'react-router-dom'
 import './App.css';
 import Login from './LoginComponent/Login';
+import Application from './ApplicationComponent/Application';
 import { MuiThemeProvider, createMuiTheme } from 'material-ui/styles';
 import teal from 'material-ui/colors/teal';
 
@@ -19,8 +20,9 @@ export default class App extends React.Component {
         return( 
             <MuiThemeProvider theme = {theme}>
                 <Switch>
-                    <Route exact path='/' component={Login}/>
-                    <Route path='/login' component={Login}/>
+                    <Route exact path = '/' component = {Login}/>
+                    <Route path = '/login' component = {Login}/>
+                    <Route path = '/application' component = {Application}/>
                 </Switch>
             </MuiThemeProvider>
         );

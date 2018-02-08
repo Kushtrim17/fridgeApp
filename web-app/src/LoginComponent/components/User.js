@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom'
 import { withStyles } from 'material-ui/styles';
 import TextField from 'material-ui/TextField';
 import Button from 'material-ui/Button';
@@ -34,6 +35,10 @@ class User extends React.Component {
 		});
 	};
 
+	logUserIn = () => {
+		alert('log user in ..');
+	}
+
 	render() {
 		const { classes } = this.props;
 
@@ -45,7 +50,7 @@ class User extends React.Component {
 				<TextField id = "password" label = "Password"
 					className = {classes.textField} margin = "normal"
 				/>
-				<Button variant = "raised" className = {classes.button} color = "primary">
+				<Button variant = "raised" className = {classes.button} color = "primary" onClick = {this.logUserIn}>
 					Login
 				</Button>
 			</form>

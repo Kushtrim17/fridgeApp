@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom'
+import { Redirect } from 'react-router-dom';
 import { withStyles } from 'material-ui/styles';
 import TextField from 'material-ui/TextField';
 import Button from 'material-ui/Button';
@@ -25,7 +27,8 @@ const styles = theme => ({
 class Fridge extends React.Component {
     state = {
         fridgeID: '',
-        fridgePass: ''
+        fridgePass: '',
+        loggedIn: false
     };
 
     handleChange = name => event => {
@@ -35,12 +38,14 @@ class Fridge extends React.Component {
     };
 
     logFridgeIn = () => {
-        alert('we want to log you in ..');
+        this.setState({loggedIn: true});
     }
 
     render() {
         const { classes} = this.props;
-
+        if (this.state.loggedIn) {
+            return (<Redirect to = "/application" />);
+        }
         return (
             <form className = {classes.container} noValidate autoComplete = "off">
                 <TextField id = "fridgeID" label = "Fridge ID"
